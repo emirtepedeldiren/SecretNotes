@@ -36,7 +36,7 @@ def take_secret():
             encrypted_message = fernet.encrypt(secret.encode())
 
 
-            with open("mySecret.txt" , "a") as data_file:
+            with open("SecretInput.txt" , "a") as data_file:
                     data_file.write(f"\n{title_hold}\n{encrypted_message.decode()}")
 
             title_entry.delete(0,END)
