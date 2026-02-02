@@ -17,13 +17,7 @@ sw.config(padx=30 , pady=30 , bg="black")
 
 def resource_path(relative_path):
 
-    try:
-
-        base_path = sys._MEIPASS
-    except Exception:
-
-        base_path = os.path.abspath(".")
-
+    base_path = getattr(sys, '_MEIPASS', os.path.dirname(os.path.abspath(__file__)))
     return os.path.join(base_path, relative_path)
 
 
@@ -32,7 +26,6 @@ def password_to_key(password):
     digest = hashlib.sha256(password.encode()).digest()
 
     return base64.urlsafe_b64encode(digest)
-
 
 
 def take_secret():
