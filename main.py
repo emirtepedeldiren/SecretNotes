@@ -1,3 +1,5 @@
+import os
+import sys
 from tkinter import *
 from tkinter import messagebox
 from cryptography.fernet import Fernet
@@ -12,6 +14,19 @@ sw.minsize(width=400 , height=700)
 sw.config(padx=30 , pady=30 , bg="black")
 
 #------------------------------FUNCTİONS---------------------------------#
+
+def resource_path(relative_path):
+
+    try:
+
+        base_path = sys._MEIPASS
+    except Exception:
+
+        base_path = os.path.abspath(".")
+
+    return os.path.join(base_path, relative_path)
+
+
 def password_to_key(password):
 
     digest = hashlib.sha256(password.encode()).digest()
@@ -73,7 +88,7 @@ def decrypt_message():
 
 # 1-İmage_Setting
 
-image = PhotoImage(file="topsecret.png")
+image = PhotoImage(file=resource_path("topsecret.png"))
 
 #İmage_label
 image_label = Label(sw,image=image)
