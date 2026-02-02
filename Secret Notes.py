@@ -96,6 +96,10 @@ image_label.config(bg="Black")
 image_label.image=image
 image_label.pack(pady=5)
 
+#icon settings
+
+sw.iconbitmap(resource_path("ikon.ico"))
+
 #-----------------------------------------------------------------------------------------#
 
 # 2- Title__Setting
